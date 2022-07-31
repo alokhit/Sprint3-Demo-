@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Signup</title>
+    <link href="style-signup.css" rel="stylesheet"/>
+    <style>
+        body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    
+  }
+  .signupFrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .form {
+    background-color: #48c9b0;
+    width: 400px;
+    padding: 20px 40px;
+    box-shadow: 0px 0px 25px rgba(34, 34, 34, 0.5);
+  }
+  h1{
+    font-weight: 300;
+    text-align: center;
+    color: white;
+  }
+  .inputContainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+  }
+  .input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #DADCE0;
+    font-size: 16px;
+    padding: 0 20px;
+    outline: none;
+    background: white;
+    z-index: 1;
+  }
+  
+  .submitBtn {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: #17a589;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 17px;
+    text-transform: uppercase;
+  }
+  
+  
+    </style>
+</head>
+<body>
+    <div class="signupFrm">
+        <form action="#" class="form" onsubmit="signup(event)">
+          <h1>- Visitor - </h1>
+    
+          <div class="inputContainer">
+            <input type="text" id="name" class="input" placeholder="Full Name">
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" id="email" class="input" placeholder="Email">
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" id="org" class="input" placeholder="Organization">
+          </div>
+    
+          <input type="submit" id="sumit" class="submitBtn" value="Sign up">
+          <input type="submit" class="submitBtn" value="Return">
+        </form>
+      </div>
+      <script>
+        var arr = [];
+        function signup(e){
+            e.preventDefault();
+            var signup_data = {
+                name : document.getElementById("name").value,
+                email : document.getElementById("email").value,
+                org : document.getElementById("org").value
+            }
+            arr.push(signup_data);
+
+            localStorage.setItem("signup", JSON.stringify(arr));
+            window.alert("signup Successfully")
+        }
+
+      </script>
+</body>
+</html>
